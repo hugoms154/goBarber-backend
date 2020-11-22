@@ -12,6 +12,7 @@ export default class FakeAppointmentsRepository
   private appointments: Appointment[] = [];
 
   public async create({
+    user_id,
     provider_id,
     date,
   }: ICreateAppointmentDTO): Promise<Appointment> {
@@ -21,6 +22,7 @@ export default class FakeAppointmentsRepository
       id: uuid(),
       date,
       provider_id,
+      user_id,
     });
 
     this.appointments.push(appointment);
