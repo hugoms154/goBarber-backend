@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 export default class AppointmentsController {
-  public async create(request: Request, response: Response): Promose<Response> {
+  public async create(request: Request, response: Response): Promise<Response> {
     const createAppointmentRepository = container.resolve(
       CreateAppointmentService,
     );
