@@ -1,6 +1,6 @@
-import UserMap from '@modules/users/mappers/UserMap';
 import ShowProfileService from '@modules/users/services/ShowProfileService';
 import UpdateProfileService from '@modules/users/services/UpdateProfileService';
+import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
@@ -29,8 +29,6 @@ export default class ProfileController {
       password,
     });
 
-    const userWithoutPass = UserMap.UserWithoutPassword(user);
-
-    return response.json(userWithoutPass);
+    return response.json({ user: classToClass(user) });
   }
 }
