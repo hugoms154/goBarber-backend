@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { errors } from 'celebrate';
 
+import 'dotenv/config';
 import 'express-async-errors';
 import '@shared/infra/typeorm';
 import '@shared/container';
