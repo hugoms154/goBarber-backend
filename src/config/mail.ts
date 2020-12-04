@@ -1,5 +1,12 @@
 interface IMailConfig {
   driver: 'ethereal' | 'ses';
+
+  config: {
+    aws: {
+      region: string;
+    };
+  };
+
   defaults: {
     from: {
       email: string;
@@ -10,6 +17,13 @@ interface IMailConfig {
 
 export default {
   driver: process.env.MAIL_DRIVER || 'ethereal',
+
+  config: {
+    ethereal: {},
+    aws: {
+      region: 'aws-ses-region',
+    },
+  },
 
   defaults: {
     from: {
