@@ -11,10 +11,12 @@ import 'reflect-metadata';
 import routes from '@shared/infra/http/routes';
 import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
+import rateLimiter from './middlewares/RateLimiter';
 
 const server = express();
 
 server.use(cors());
+server.use(rateLimiter);
 server.use(express.json());
 server.use('/files', express.static(uploadConfig.tmpFolder));
 server.use(routes);
